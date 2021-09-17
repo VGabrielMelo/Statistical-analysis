@@ -1,8 +1,8 @@
 
 <div class="box">
-  <img src="https://fatecsjc-prd.azurewebsites.net/images/logo/fatecsjc_400x192.png" width="420"> 
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/240px-Python.svg.png">
-  <img src="https://images.tute.io/tute/topic/FastAPI.png" width="250">
+  <img src="https://fatecsjc-prd.azurewebsites.net/images/logo/fatecsjc_400x192.png" width="300"> 
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/160px-Python.svg.png">
+  <img src="https://images.tute.io/tute/topic/FastAPI.png" width="150">
 </div>
 <br>
 
