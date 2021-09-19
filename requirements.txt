@@ -1,3 +1,4 @@
 starlette
 uvicorn
 Pandas
+starlette-dataframe-response
