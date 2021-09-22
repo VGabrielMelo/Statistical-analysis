@@ -8,7 +8,7 @@ class User:
 
     @staticmethod
     async def list_user(request: Request):
-        await database.connect()
+        
         query = user.select()
         results = await database.fetch_all(query)
         content = [
@@ -19,7 +19,7 @@ class User:
             }
             for result in results
         ]
-        await database.disconnect()
+        
         return JSONResponse(content)
 
     @staticmethod
@@ -32,9 +32,7 @@ class User:
         senha=data["senha"],
         perfil=data["perfil"]
         )
-        await database.connect()
         await database.execute(query)
-        await database.disconnect()
         return JSONResponse({
             "nome": data["nome"],
             "email": data["email"],
