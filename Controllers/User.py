@@ -1,29 +1,43 @@
 from starlette.responses import JSONResponse
-from Controllers.Database import retornar_database
-
+from starlette.requests import Request
+from Controllers.Database import user
+from Controllers.Database import database
 
 # Verificar esse arquivo e pensar em uma forma de conseguir database
 class User:
 
     @staticmethod
-    async def list_notes(request):
-        query = "select * from user"
-        results = await retornar_database.fetch_all(query)
+    async def list_user(request: Request):
+        await database.connect()
+        query = user.select()
+        results = await database.fetch_all(query)
         content = [
             {
-                "text": result["text"],
-                "completed": result["completed"]
+                "nome": result["nome"],
+                "email": result["email"],
+                "perfil": result["perfil"],
             }
             for result in results
         ]
+        await database.disconnect()
         return JSONResponse(content)
 
     @staticmethod
-    async def add_note(request):
+    async def add_user(request: Request):
         data = await request.json()
-        query = "insert into user values(" + text=data["text"], completed=data["completed"]
-    
-        await retornar_database.execute(query)
+
+        query = user.insert().values(
+        nome=data["nome"],
+        email=data["email"],
+        senha=data["senha"],
+        perfil=data["perfil"]
+        )
+        await database.connect()
+        await database.execute(query)
+        await database.disconnect()
         return JSONResponse({
-            "text": data["text"],
-            "completed": data["completed"]
+            "nome": data["nome"],
+            "email": data["email"],
+            "senha": data["senha"],
+            "perfil": data["perfil"]
+        })

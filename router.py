@@ -12,6 +12,8 @@ class Router:
     @staticmethod
     def get_routes():
         return [
-                Route('/getdataframe', Controllers.Dataset.Dataset.getdataset, methods=["POST"]),
-                Route('/manipulatedataframe', Controllers.Dataset.Dataset.manipulatedataset, methods=["GET"]),
+                Route('/get-dataframe', Controllers.Dataset.Dataset.getdataset, methods=["POST"]),
+                Route('/up-csv', Controllers.Dataset.Dataset.up_csvs, methods=["POST"]),
+                Route('/manipulate-dataframe', Controllers.Dataset.Dataset.manipulatedataset, methods=["GET"]),
+                Route('/add-user', Controllers.User.User.add_user, methods=["POST"]),
                ]
