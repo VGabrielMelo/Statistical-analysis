@@ -14,6 +14,6 @@ class Router:
         return [
                 Route('/get-dataframe', Controllers.Dataset.Dataset.getdataset, methods=["POST"]),
                 Route('/up-csv', Controllers.Dataset.Dataset.up_csvs, methods=["POST"]),
-                Route('/manipulate-dataframe', Controllers.Dataset.Dataset.manipulatedataset, methods=["GET"]),
+                #Route('/manipulate-dataframe', Controllers.Dataset.Dataset.manipulatedataset, methods=["GET"]),
                 Route('/add-user', Controllers.User.User.add_user, methods=["POST"]),
                ]

@@ -1,4 +1,7 @@
-starlette
-uvicorn
-Pandas
-starlette-dataframe-response
+starlette,
+uvicorn,
+Pandas,
+starlette-dataframe-response,
+alembic,
+database,
+sqlalchemy,

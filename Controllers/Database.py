@@ -13,8 +13,8 @@ csvs = sqlalchemy.Table(
     "csvs",
     metadata,
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("Título", sqlalchemy.String, nullable=False),
-    sqlalchemy.Column("csv", sqlalchemy.LargeBinary, nullable=False),
+    sqlalchemy.Column("titulo", sqlalchemy.String, nullable=False),
+    sqlalchemy.Column("Path_csv", sqlalchemy.String, nullable=False),
 )
 
 user = sqlalchemy.Table(

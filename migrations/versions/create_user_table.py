@@ -20,10 +20,10 @@ def upgrade():
     op.create_table(
     "user",
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("nome", sqlalchemy.String),
+    sqlalchemy.Column("nome", sqlalchemy.String, nullable=False),
     sqlalchemy.Column("email", sqlalchemy.String, unique=True),
-    sqlalchemy.Column("senha", sqlalchemy.String),
-    sqlalchemy.Column("perfil", sqlalchemy.String),
+    sqlalchemy.Column("senha", sqlalchemy.String, nullable=False),
+    sqlalchemy.Column("perfil", sqlalchemy.String, nullable=False),
 )
 
 
