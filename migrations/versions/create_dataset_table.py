@@ -18,12 +18,12 @@ depends_on = None
 
 def upgrade():
     op.create_table(
-    "csvs",
+    "dataset",
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
     sqlalchemy.Column("titulo", sqlalchemy.String, nullable=False),
-    sqlalchemy.Column("Path_csv", sqlalchemy.String, nullable=False, unique=True),
+    sqlalchemy.Column("Path_dataset", sqlalchemy.String, nullable=False, unique=True),
 )
 
 
 def downgrade():
-    op.drop_table('csvs')
+    op.drop_table('dataset')
