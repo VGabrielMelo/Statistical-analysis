@@ -1,8 +1,12 @@
 
 <div class="box">
+  <p align="center">
   <img src="https://fatecsjc-prd.azurewebsites.net/images/logo/fatecsjc_400x192.png" width="300"> 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/160px-Python.svg.png">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://images.tute.io/tute/topic/FastAPI.png" width="150">
+  </p>
 </div>
 <br>
 

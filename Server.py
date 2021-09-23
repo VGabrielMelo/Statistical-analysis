@@ -1,7 +1,11 @@
 from starlette.applications import Starlette
 from router import Router
 
-from Controllers.Database import retornar_database
+from migrations.versions import create_dataset_table
+from migrations.versions import create_user_table
 
-app = Starlette(debug=True, routes=Router.get_routes(), on_startup= retornar_database.connect,
-    on_shutdown=retornar_database.disconnect)
+from Controllers.Database import database
+
+app = Starlette(routes=Router.get_routes(), on_startup=[database.connect],on_shutdown=[database.disconnect])
+
+

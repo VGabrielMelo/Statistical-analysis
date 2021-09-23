@@ -1,8 +1,6 @@
 import databases
 import sqlalchemy
 from starlette.config import Config
-from starlette.responses import JSONResponse
-
 
 # Configuration from environment variables or '.env' file.
 config = Config('.env')
@@ -15,8 +13,8 @@ csvs = sqlalchemy.Table(
     "csvs",
     metadata,
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("Título", sqlalchemy.String, nullable=False),
-    sqlalchemy.Column("csv", sqlalchemy.Binary, nullable=False),
+    sqlalchemy.Column("titulo", sqlalchemy.String, nullable=False),
+    sqlalchemy.Column("Path_csv", sqlalchemy.String, nullable=False),
 )
 
 user = sqlalchemy.Table(
@@ -30,6 +28,3 @@ user = sqlalchemy.Table(
 )
 
 database = databases.Database(DATABASE_URL)
-
-def retornar_database():
-    return database
