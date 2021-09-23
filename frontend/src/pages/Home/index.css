@@ -1,0 +1,19 @@
+#home,#home-body{
+    height: 100vh;
+}
+
+#col-menu{
+    background-color: var(--cor-bg-menu);
+}
+#col-menu div{
+    margin-top: 1rem;
+    align-items: center;
+}
+#col-menu div a{
+    color:var(--cor-texto-menu);
+    font-size: 1.4rem;
+    transition: .4s;
+}
+#col-menu div a:hover{
+    color:var(--cor-texto-menu-hover);
+}
