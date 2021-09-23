@@ -1,19 +1,14 @@
 import api from './../../services/api'
-import getFileExtension from './../../utils/getFileExtension'
-import $ from 'jquery'
 
-async function uploadArquivo(arquivo,nome_arquivo){
-    let extensao = getFileExtension(nome_arquivo)
-    switch (extensao) {
-        case 'csv':
-            break;
-        case 'xls':
-            break;
-        default:
-            throw Error("Arquivo com formato inválido.")
+async function uploadArquivo(arquivo){
+    let data = {
+        "dataset":arquivo
     }
-    await api.post("/up-csv")
-    await api.post("/up-csv")
+    await api.post("/up-csv",data).then((res)=>{
+        console.log(res)
+    }).catch((err)=>{
+        console.log(err)
+    })
 }
 
 export default uploadArquivo;

@@ -1,16 +1,16 @@
 import { React, useState } from 'react'
-import { useHistory } from 'react-router-dom';
-import { FaSignOutAlt, FaMarker,FaHome } from 'react-icons/fa'
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { Container, Form, Button } from 'react-bootstrap'
 import uploadArquivo from './../../js/Upload'
 import $ from 'jquery'
 import "./index.css"
 
 function Upload(){
-    const uploadFile = () =>{
-        let arquivo = $("#arquivo")
-        let nome_arquivo = arquivo.val();
-        uploadArquivo(arquivo,nome_arquivo).then(()=>{
+    // ./../../../../assets/files
+    const uploadFile = (e) =>{
+        e.preventDefault()
+        let arquivo = $("#arquivo").val()
+
+        uploadArquivo(arquivo).then(()=>{
 
         })
         .catch(()=>{
@@ -19,10 +19,17 @@ function Upload(){
     }
     return (
         <Container id="upload">
-            <Form onSubmit={uploadFile}>
-                <Form.Group controlId="formFile" className="mb-3">
+            <Form /*encType="multipart/form-data"*/ onSubmit={uploadFile}>
+                {/* <Form.Group controlId="formFile" className="mb-3">
                     <Form.Label>Faça o upload do arquivo.</Form.Label>
-                    <Form.Control id="arquivo" type="file" />
+                    <Form.Control id="arquivo" name="arquivo" type="file" />
+                </Form.Group> */}
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Entre com o endereço do arquivo</Form.Label>
+                    <Form.Control type="text" placeholder="C://arquivo/exemplo" />
+                    <Form.Text className="text-muted">
+                        Colocar arquivo sem a extensão
+                    </Form.Text>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Enviar
