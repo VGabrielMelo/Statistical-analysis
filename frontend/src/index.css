@@ -1,0 +1,13 @@
+:root{
+    --cor-bg-menu: #545454;
+    --cor-texto-menu: #E0E0E0;
+    --cor-texto-menu-hover: #b6b6b6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+
+}
