@@ -2,7 +2,7 @@ import api from './../../services/api'
 import getFileExtension from './../../utils/getFileExtension'
 
 
-async function uploadArquivo(arquivo){
+/* async function uploadArquivo(arquivo){
     let extensao = getFileExtension(arquivo)
     let rota
     if(extensao==="csv"){
@@ -21,9 +21,9 @@ async function uploadArquivo(arquivo){
         console.log(res)
     }).catch((err)=>{
         console.log(err)
-    })
+    }) */
 
-    /* async function uploadArquivo(arquivo){
+     async function uploadArquivo(arquivo){
         console.log(arquivo instanceof File)
         const formData = new FormData()
         formData.append('arquivo', arquivo)
@@ -31,7 +31,7 @@ async function uploadArquivo(arquivo){
             console.log(res)
         }).catch((err)=>{
             console.log(err)
-        }) */
+        }) 
 }
 
 export default uploadArquivo;
