@@ -76,6 +76,16 @@ class ArquivoController {
                 let amplitude_total = amplitudeTotal(arquivo_convertido[arquivo_convertido.length - 1],arquivo_convertido[0])
                 let intervalo_classes = parseFloat((amplitude_total/numero_classes).toFixed(2))            
                 let classes_numericas = classes(arquivo_convertido,intervalo_classes)
+                classes_numericas.forEach((classe,index)=>{
+                    arquivo_convertido.forEach((d,k)=>{
+                        if(d>=classe[0]&&d<classe[1]){
+                            classe[2]++
+                        }
+                    })
+                    let frequencia_relativa = (classe[2]/arquivo_convertido.length)*100
+                    frequencia_relativa = parseFloat(frequencia_relativa.toFixed(2))
+                    classe.push(frequencia_relativa)
+                }) 
                 let response = {
                     numero_classes:numero_classes,
                     amplitude_total:amplitude_total,
@@ -84,7 +94,7 @@ class ArquivoController {
                 }
                 return res.status(200).json(response)
 
-            });
+            })
         })
     }
 

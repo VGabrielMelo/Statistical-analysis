@@ -24,6 +24,9 @@ function Upload(){
                     <Form.Label>Entre com o endereço do arquivo</Form.Label>
                     <Form.Control type="text" id="arquivo" placeholder="C://arquivo/exemplo" />
                 </Form.Group>
+                <Form.Text className="text-muted">
+                    Arquivos csv precisam ter a ultima e a primeira linha em branco e o delimitador de casa decimal deve ser .
+                </Form.Text>
                 <Button variant="primary" type="submit">
                     Enviar
                 </Button>

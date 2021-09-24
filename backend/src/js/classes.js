@@ -4,14 +4,14 @@ const classes = (dados,intervalo) => {
     dados.forEach((d,index) => {
         if(index==0){
             let limite = parseFloat((d+intervalo).toFixed(2))
-            classes.push([d,limite])
+            classes.push([d,limite,0])
         }
         else{
             let base = classes[classes.length-1][1]
             if(!(d<=base)){
                 let limite = parseFloat((base+intervalo).toFixed(2)) 
                 limite = maximo-intervalo<limite ? maximo : limite
-                classes.push([base,limite])
+                classes.push([base,limite,0])
             }   
         }
     })
