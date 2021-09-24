@@ -41,7 +41,7 @@ class Dataset:
             data = await request.json()
             tipoarq = "exel"
             Pathdataset = data["pathexel"]
-            df = pd.read_excel(Pathdataset, encoding="iso-8859-1")
+            df = pd.read_excel(Pathdataset)
             return DataFrameResponse(df, media_type=guess_media_type(request))
         except JSONDecodeError:
             return JSONResponse({'message': 'Ops... Não consegui encontrar esse Dataset... Tente novamente.'})
@@ -78,7 +78,7 @@ class Dataset:
             if tipoarq == 'csv':
                 df = pd.read_csv(Pathdataset, delimiter=delimitador, encoding="iso-8859-1")
             else: 
-                df = pd.read_excel(Pathdataset, encoding="iso-8859-1")
+                df = pd.read_excel(Pathdataset)
             #quantidade de valores dentro do dataset
             quant_data = df.size
             #Maior valor dentro do dataset
@@ -91,7 +91,7 @@ class Dataset:
             k = math.sqrt(len(df))
             # O valor de amplitude de classe pode ser arredondado para um número inteiro, geralmente para facilitar a interpretação da tabela.
             h = at/k 
-            h = math.ceil(h)
+            #h = math.ceil(h)
 
             frequencias = []
             # Menor valor da série
@@ -100,7 +100,7 @@ class Dataset:
             menor_amp = round(menor+h,1)
             valor = menor
             while valor < data_max:
-                frequencias.append('[{}] - [{}]'.format(round(valor,1),round(valor+h,1)))
+                frequencias.append('{} - {}'.format(round(valor,1),round(valor+h,1)))
                 valor += h
 
             #Transformando df em um array 1D
@@ -109,6 +109,7 @@ class Dataset:
             # Discretização dos valores em k faixas, rotuladas pela lista criada anteriormente
             freq_abs = pd.qcut(nmpData,len(frequencias),labels=frequencias)
             result_freq_abs = pd.value_counts(freq_abs)
+            
             return JSONResponse({'Quantidade de valores dentro do dataset':str(quant_data),
                                  'Maior valor dentro do dataset':str(data_max),
                                  'Menor valor dentro do dataset':str(data_min),
