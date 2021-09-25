@@ -79,12 +79,19 @@ class ArquivoController {
                 classes_numericas.forEach((classe,index)=>{
                     arquivo_convertido.forEach((d,k)=>{
                         if(d>=classe[0]&&d<classe[1]){
-                            classe[2]++
+                            classe[2][0]++
                         }
                     })
-                    let frequencia_relativa = (classe[2]/arquivo_convertido.length)*100
+                    let frequencia_relativa = (classe[2][0]/arquivo_convertido.length)*100
                     frequencia_relativa = parseFloat(frequencia_relativa.toFixed(2))
-                    classe.push(frequencia_relativa)
+                    classe[3][0]=frequencia_relativa
+                    if(index!==0){
+                        classe[2][1] = classes_numericas[index-1][2][1]+classe[2][0]
+                        classe[3][1] = classes_numericas[index-1][3][1]+frequencia_relativa
+                    }else{
+                        classe[2][1] = classe[2][0]
+                        classe[3][1] = frequencia_relativa
+                    }
                 }) 
                 let response = {
                     numero_classes:numero_classes,

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Container,Button, Form } from 'react-bootstrap'
 import getFiles from './../../js/Files'
+import getData from './../../js/Data'
+
 import $ from 'jquery'
 import "./index.css"
 
@@ -13,17 +15,29 @@ function Files(){
             console.log(err)
         })
     }
+
+    async function loadData(e){
+        e.preventDefault()
+        let nome_arquivo = $("#select-arquivo option:selected").val();
+        await getData(nome_arquivo).then((res)=>{
+            console.log(res.data)
+        }).catch((err)=>{
+            console.log(err)
+        })
+    }
+
     useEffect(() => {
         loadFiles()
     },[])
     return (
         <Container id="files">
-            <Form>
-                <Form.Select aria-label="">
+            <Form onSubmit={loadData}>
+                <Form.Select id="select-arquivo" aria-label="">
                     {arquivos.map((arquivo, index) => ( 
                         <option value={arquivo.nome}>{arquivo.nome}</option>
                     ))}
                 </Form.Select>
+                <Button type="submit">Consultar</Button>
             </Form>
         </Container>
     )
