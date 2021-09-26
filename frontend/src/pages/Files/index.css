@@ -1,3 +1,11 @@
 #files Form{
     margin: 4rem auto auto auto;
 }
+
+#tabela{
+    display: none;
+}
+
+#th-classe{
+    width: 15%;
+}
