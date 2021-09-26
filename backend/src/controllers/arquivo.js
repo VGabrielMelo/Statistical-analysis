@@ -72,8 +72,9 @@ class ArquivoController {
                 if(!(arquivo_convertido[0] instanceof Number) ){
                     arquivo_convertido.shift()
                 }
+                let numero_elementos = arquivo_convertido.length
                 let numero_classes = sturges(arquivo_convertido)
-                let amplitude_total = amplitudeTotal(arquivo_convertido[arquivo_convertido.length - 1],arquivo_convertido[0])
+                let amplitude_total = amplitudeTotal(arquivo_convertido[numero_elementos - 1],arquivo_convertido[0])
                 let intervalo_classes = parseFloat((amplitude_total/numero_classes).toFixed(2))            
                 let classes_numericas = classes(arquivo_convertido,intervalo_classes)
                 classes_numericas.forEach((classe,index)=>{
@@ -82,7 +83,7 @@ class ArquivoController {
                             classe[2][0]++
                         }
                     })
-                    let frequencia_relativa = (classe[2][0]/arquivo_convertido.length)*100
+                    let frequencia_relativa = (classe[2][0]/numero_elementos)*100
                     frequencia_relativa = parseFloat(frequencia_relativa.toFixed(2))
                     classe[3][0]=frequencia_relativa
                     if(index!==0){
@@ -93,8 +94,29 @@ class ArquivoController {
                         classe[3][1] = frequencia_relativa
                     }
                 }) 
+                let mediana
+                let index_mediana = parseInt(((numero_elementos/2)-1).toFixed(0))
+                if(numero_elementos%2!==0){
+                    mediana = arquivo_convertido[index]
+                }
+                else{
+                    mediana = (arquivo_convertido[index_mediana]+arquivo_convertido[index_mediana+1])/2
+                }
+                mediana = parseFloat(mediana.toFixed(2))
+
+               /*  let cont = [];
+                let total = 1;
+                for (let i = 0; i < numero_elementos; i++) {
+                    if (i < numero_elementos - 1 && cores[i].cor == cores[i + 1].cor) {
+                        total++;
+                    } else {
+                        cont.push({ cor: cores[i].cor, total: total });
+                        total = 1;
+                    }
+                } */
                 let response = {
                     numero_classes:numero_classes,
+                    mediana:mediana,
                     amplitude_total:amplitude_total,
                     intervalo_classes:intervalo_classes,
                     classes:classes_numericas

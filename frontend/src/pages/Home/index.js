@@ -1,6 +1,4 @@
 import { React, useState } from 'react'
-import { useHistory } from 'react-router-dom';
-import { FaSignOutAlt, FaMarker,FaHome } from 'react-icons/fa'
 import { Container, Row, Col, Nav } from 'react-bootstrap'
 import Upload from '../Upload';
 import Files from '../Files';
@@ -9,7 +7,6 @@ import "./index.css"
 
 function Home(){
     const [conteudo, setConteudo] = useState();
-    const hist = useHistory();
 
     const renderUpload = () =>(setConteudo(<Upload />))
 

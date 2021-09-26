@@ -1,47 +1,6 @@
-/* import { React, useState } from 'react'
-import { Container, Form, Button } from 'react-bootstrap'
-import uploadArquivo from './../../js/Upload'
-import $ from 'jquery'
-import "./index.css"
-
-function Upload(){
-    // ./../../../../assets/files
-    const uploadFile = (e) =>{
-        e.preventDefault()
-        let arquivo = $("#arquivo").val()
-
-        uploadArquivo(arquivo).then(()=>{
-
-        })
-        .catch(()=>{
-
-        })
-    }
-    return (
-        <Container id="upload">
-            <Form onSubmit={uploadFile}>
-                <Form.Group className="mb-3" controlId="formGroupArquivo">
-                    <Form.Label>Entre com o endereço do arquivo</Form.Label>
-                    <Form.Control type="text" id="arquivo" placeholder="C://arquivo/exemplo" />
-                </Form.Group>
-                <Form.Text className="text-muted">
-                    Arquivos csv precisam ter a ultima e a primeira linha em branco e o delimitador de casa decimal deve ser .
-                </Form.Text>
-                <Button variant="primary" type="submit">
-                    Enviar
-                </Button>
-            </Form>
-        </Container>
-    )
-}
-
-export default Upload; */
-
-
 import { React, useState } from 'react'
 import { Container, Form, Button } from 'react-bootstrap'
 import uploadArquivo from './../../js/Upload'
-import $ from 'jquery'
 import "./index.css"
 
 function Upload(){
@@ -60,9 +19,12 @@ function Upload(){
             <Form encType="multipart/form-data" onSubmit={uploadFile}>
                 <Form.Group controlId="formFile" className="mb-3">
                     <Form.Label>Faça o upload do arquivo.</Form.Label>
-                    <Form.Control onChange={(e)=>setArquivo(e.target.files[0])} id="arquivo" name="arquivo" type="file" />
+                    <Form.Control accept=".csv" onChange={(e)=>setArquivo(e.target.files[0])} id="arquivo" name="arquivo" type="file" />
+                    <Form.Text className="text-muted">
+                        Apenas arquivos csv são aceitos. <br />
+                        OBS: Deixe a primeira e ultima linha do arquivo vazia.
+                    </Form.Text>
                 </Form.Group>
-
                 <Button variant="primary" type="submit">
                     Enviar
                 </Button>

@@ -1,11 +1,14 @@
 #files Form{
     margin: 4rem auto auto auto;
 }
-
-#tabela{
-    display: none;
-}
-
 #th-classe{
     width: 15%;
+}
+
+.propriedades span{
+    font-weight: bold;
+}
+
+#chart-div{
+    align-items: center;
 }
