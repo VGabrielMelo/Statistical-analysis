@@ -97,7 +97,7 @@ class ArquivoController {
                 let mediana
                 let index_mediana = parseInt(((numero_elementos/2)-1).toFixed(0))
                 if(numero_elementos%2!==0){
-                    mediana = arquivo_convertido[index]
+                    mediana = arquivo_convertido[index_mediana]
                 }
                 else{
                     mediana = (arquivo_convertido[index_mediana]+arquivo_convertido[index_mediana+1])/2
