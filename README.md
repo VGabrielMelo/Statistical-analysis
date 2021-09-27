@@ -1,45 +1,68 @@
 
 <div class="box">
   <p align="center">
-  <img src="https://fatecsjc-prd.azurewebsites.net/images/logo/fatecsjc_400x192.png" width="300"> 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/160px-Python.svg.png">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://images.tute.io/tute/topic/FastAPI.png" width="150">
+  <img src="https://fatecsjc-prd.azurewebsites.net/images/logo/fatecsjc_400x192.png" width="350"> 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br>
+    <br>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="120">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" width="120">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" width="120">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://camo.githubusercontent.com/53545009f2b8643a3315490d99941d924e108dc8a4ea21bf835f5f0b7c0e54da/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f706f737467726573716c2f706f737467726573716c2d69636f6e2e737667" width="120">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src= "https://camo.githubusercontent.com/faf0782d01ec9e993c2e258fa995f0fc9171a14969d2129bbf5a5816df7e7b62/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f72656163746a732f72656163746a732d69636f6e2e737667" width="120">
   </p>
 </div>
 <br>
 
-# Statistical-analysis-Starlette
- ### Web application created to organize ways to statistically analyze a database (CSV, TXT, EXEL) by naming columns, metrics and plotting graphs.
+# Statistical analysis :chart_with_upwards_trend:
+ ### Web application created to organize ways to statistically analyze a database (CSV, TXT, EXEL) by naming columns, metrics and plotting graphs. :bar_chart:
  
- ### To start the project, first it is recommended to create a VENV on your machine, because if any library does something wrong, it is easier to be solved.
+ ### To start the project, it is recommended that you have already installed nodejs :electric_plug:
+ --------------------------------------------------------------------------------------
+ ### The app has this initial face and the following features:
+ <img src="https://github.com/VGabrielMelo/Statistical-analysis-Starlette/blob/main/Imagens/Amostra.gif">
+ 
+ --------------------------------------------------------------------------------------
+ 
+ ## Starting the application :hammer_and_wrench:
  
  ### Open your CMD and enter your project folder using the command below (Windows):
  
  **1°**
  ```
- cd <path-your-project>
+ cd <path-your-project> + Statistical_analysis\backend
  ```
  **2°**
  ```
- python -m venv <name-your-venv>
+ npm install
+ ```
+ **after:**
+ 
+ ```
+ npm run dev
  ```
  **3°**
+ **Open a new cmd window and type:**
  ```
- <name-your-venv>\Scripts\activate.bat
+ cd <path-your-project> + Statistical_analysis\frontend
+ ```
+ **4°**
+ ```
+ npm install
+ ```
+ **after:**
+ 
+ ```
+ yarn start
+ ```
+ *If you don't have yarn installed just type:*
+ ```
+ npm install -g yarn
  ```
  
- ### Ok, now just use pip and install all the dependencies of our project:
+ ### Finished! now you can use the app. :star2: :sparkles:
  
- ```
- pip install -r /path/to/requirements.txt
- ```
- 
- ## Starting the application
- 
- ### To start our application on this architecture, just open your venv and type the command:
- * --reload is the argument for the server to restart whenever there is any change
- ```
- uvicorn Server:app -- reload
- ```
