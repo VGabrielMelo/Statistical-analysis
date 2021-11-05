@@ -1,13 +1,25 @@
 const { ArquivoModel } = require("./../models")
 const csv = require('jquery-csv');
+const multer = require("multer")
 const fs = require('fs');
 const sturges = require("./../js/sturges")
 const amplitudeTotal = require("./../js/amplitudeTotal")
 const classes = require("./../js/classes")
 
+const storage = multer.diskStorage({
+    destination: (req, file, callback) =>{
+        callback(null,'assets')
+    },
+    filename: (req, file, callback) =>{
+        callback(null,file.originalname)
+    }
+})
+const upload = multer({storage})
+
 
 
 class ArquivoController {
+    
     async createFile (req,res) {
         let nome
         const file = req.file
@@ -16,6 +28,7 @@ class ArquivoController {
         }
         else{
             nome=file.originalname
+            upload.single("arquivo")
         }
             let existente = await ArquivoModel.findOne({where: {nome}})
             if(!existente){
@@ -57,6 +70,7 @@ class ArquivoController {
                 }  
             })
     }
+
 
     async getFile(req,res){
         let filename = req.params.nome;
