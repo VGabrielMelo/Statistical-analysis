@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
+import Pages from './pages';
 import isAuth from './utils/isAuth';
-import Login from './pages/Login';
-import Home from './pages/Home'
 import isPrivate from './utils/isPrivate';
 
 
@@ -43,8 +42,11 @@ function Routes(){
     return(
         <BrowserRouter>
             <Switch>
-                <PublicRoute exact path="/" component={()=>(<Login/>)}/>
-                <PrivateRoute exact path="/home" component={()=>(<Home/>)}/>
+                <PublicRoute exact path="/" component={()=>(<Pages.Login />)}/>
+                <PublicRoute exact path="/cadastro" component={()=>(<Pages.Cadastro/>)}/>
+                <PrivateRoute exact path="/home" component={()=>(<Pages.Home />)}/>
+                <PrivateRoute exact path="/upload" component={()=>(<Pages.Upload />)}/>
+                <PrivateRoute exact path="/files" component={()=>(<Pages.Files />)}/>
                 <PrivateRoute path='*' component={NotFound}/>
             </Switch>
         </BrowserRouter>

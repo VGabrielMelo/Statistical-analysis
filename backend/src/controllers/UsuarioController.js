@@ -27,6 +27,7 @@ class UsuarioController {
   
       return await UsuarioModel.create({ mail, senha, perfil })
         .then(async (r) => {
+          console.log(req.body)
           const { idusuario, mail, perfil } = r.get();
           return res.status(200).json({ idusuario, mail, perfil });
         })

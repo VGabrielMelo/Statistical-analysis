@@ -26,7 +26,7 @@ const Login = () => {
     }
     const handleLogin = (e) => {
         e.preventDefault()
-        api.get("/EP/usuario/login", usuario).then((res) => {
+        api.get("/usuario/login", usuario).then((res) => {
             let token = res.data.token
             let perfil = res.data.perfil
             let idusuario = res.data.idusuario
@@ -63,7 +63,7 @@ const Login = () => {
         </div>
         <br />
         <div className="d-grid gap-2">
-            <Button onClick={redirectCadastro} variant="primary">Cadastro</Button>
+            <Button block color="secondary" type="button" onClick={redirectCadastro}>Cadastro</Button>
         </div>
     </Form>
     </Container>

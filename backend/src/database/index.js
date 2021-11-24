@@ -1,20 +1,19 @@
-const { Sequelize } = require('sequelize')
-require('dotenv').config()
+const Sequelize = require("sequelize");
+require('dotenv').config();
 
-const db = process.env
-const sequelize = new Sequelize(db.DB_NAME, db.DB_USER, db.DB_PASS, {
-    host: db.DB_HOST,
-    dialect: 'postgres'
-})
+let database = null;
+try {
+    database = new Sequelize(process.env.DATABASE_URL, { logging: false })
 
-const testConnection = async () =>{
-    try {
-        await sequelize.authenticate();
-        console.info('Conexão com o banco realizada com sucesso.')
-    } catch (error) {
-        console.error('Erro durante a conexão com o banco de dados:', error.message)
-    }
-} 
-
-
-module.exports = { testConnection, sequelize }
+    database
+        .authenticate()
+        .then(() => {
+            console.log("Conexão realizada com o SGBD");
+        })
+        .catch((error) => {
+            console.error("Não foi possível conectar com o SGBD:", error.message);
+        });
+} catch (e) {
+    console.log(e.message)
+}
+module.exports = database;

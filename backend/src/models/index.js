@@ -1,8 +1,8 @@
-const { sequelize } = require('./../database/index')
+const database = require("../database");
 const ArquivoModel = require('./arquivo')
 const UsuarioModel = require("./usuario");
 
-sequelize.sync()
+database.sync()
 
 module.exports = {
     UsuarioModel,

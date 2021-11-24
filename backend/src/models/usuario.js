@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 const bcrypt = require("bcrypt");
-const { sequelize } = require("./../database/index")
+const database = require("../database");
 
-const Usuario = sequelize.define(
+const Usuario = database.define(
   "usuario",
   {
     idusuario: {

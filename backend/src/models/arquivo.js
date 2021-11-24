@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
-const { sequelize } = require("./../database/index")
+const database = require("../database");
 
-const Arquivo = sequelize.define(
+const Arquivo = database.define(
     "arquivo",{
         idArquivo:{
             type: Sequelize.INTEGER,
