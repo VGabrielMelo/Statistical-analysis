@@ -46,8 +46,6 @@ class UsuarioController {
       let { mail, senha } = req.body;
       mail = (mail || "").toString().trim();
       senha = (senha || "").toString().trim();
-      console.log(mail)
-      console.log(senha)
       if (mail === "") {
         return res
           .status(400)

@@ -7,7 +7,7 @@ const { create, login, updatemail, updatesenha, updateperfil } = new UsuarioCont
 router.post("/create", create);
 
 // curl -X GET -d "mail=teste@teste.com&senha=123456" http://localhost:1234/atv1/usuario/login
-router.post("/login", login);
+router.get("/login", login);
 
 router.use(authMiddleware);
 
