@@ -23,6 +23,17 @@
  
  ### To start the project, it is recommended that you have already installed nodejs :electric_plug:
  --------------------------------------------------------------------------------------
+ 
+ ### It has a login and registration screen:
+ 
+ <p> 
+  <h4> - Login: </h4>
+ <img src="https://github.com/VGabrielMelo/Statistical-analysis/blob/main/Imagens/Login.png">
+ <br>
+  <h4> - Registration screen: </h4>
+ <img src="https://github.com/VGabrielMelo/Statistical-analysis/blob/main/Imagens/Cadastro.png">
+ </p>
+ 
  ### The app has this initial face and the following features:
  <img src="https://github.com/VGabrielMelo/Statistical-analysis-Starlette/blob/main/Imagens/Amostra.gif">
  
